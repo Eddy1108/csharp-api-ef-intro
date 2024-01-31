@@ -15,7 +15,7 @@ namespace workshop.wwwapi.Repository
 
         public async Task<IEnumerable<Band>> Get()
         {
-            return await _databaseContext.Bands.ToListAsync();
+            return await _databaseContext.Bands.Include(band => band.NumberOfMembers).ToListAsync();
         }
        
     }
